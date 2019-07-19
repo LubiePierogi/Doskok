@@ -7,7 +7,7 @@ public class PlatformScript : MonoBehaviour
 {
     public bool isSelected;
     public Renderer rend;
-    
+    public LineRenderer line;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -38,13 +38,13 @@ public class PlatformScript : MonoBehaviour
 
     public bool isGrowing = false;
     private float growStart;
-    private Vector3 growScale;
+    private Vector3 growDir;
     public float Power = 1.0f;
 
     public void Grow(Vector3 direction)
     {
         
-        transform.localScale += new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z));
+        transform.localScale += new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z) );
         transform.localPosition += 0.5f * direction;
 
     }
@@ -52,7 +52,10 @@ public class PlatformScript : MonoBehaviour
     public void Grow(float amount)
     {
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
-        Grow(amount*dir);
+        dir = dir * amount * Time.deltaTime;
+        growDir += dir;
+        line.SetPosition(1, growDir);
+        Grow(dir);
     }
     
 
@@ -61,7 +64,7 @@ public class PlatformScript : MonoBehaviour
         isGrowing = true;
         growStart = Time.time;
 
-        growScale = transform.localScale;
+        growDir = Vector3.zero;
         rend.material.color = Color.red;
         
     }
@@ -75,7 +78,7 @@ public class PlatformScript : MonoBehaviour
         coll.OverlapCollider(new ContactFilter2D(), result);
         foreach (Collider2D collider2D in result)
         {
-            collider2D.GetComponent<Rigidbody2D>().AddForce( (growScale-transform.localScale) *(Time.time-growStart) * -Power, ForceMode2D.Impulse);
+            collider2D.GetComponent<Rigidbody2D>().AddForce( (growDir) *(Time.time-growStart) * Power, ForceMode2D.Impulse);
         }
     }
 
@@ -87,7 +90,7 @@ public class PlatformScript : MonoBehaviour
     {
         if (isGrowing)
         {
-            Grow(0.1f);
+            Grow(1f);
         }
 
 
