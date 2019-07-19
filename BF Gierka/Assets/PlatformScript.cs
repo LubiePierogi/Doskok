@@ -55,6 +55,7 @@ public class PlatformScript : MonoBehaviour
         }
         transform.localScale += new Vector3(Mathf.Abs(addVec.x), Mathf.Abs(addVec.y), Mathf.Abs(addVec.z));
         transform.localPosition += 0.5f * addVec;
+
     }
 
     public void Grow(float amount)
@@ -91,11 +92,8 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-// Grow(0.8f * Time.deltaTime, 2);
-        /*
-        if (isSelected)
-        {
-            GetComponent<SpriteRenderer>.
-        }*/
+
+
+
     }
 }
