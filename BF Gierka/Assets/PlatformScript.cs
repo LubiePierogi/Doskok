@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlatformScript : MonoBehaviour
 {
@@ -56,8 +57,33 @@ public class PlatformScript : MonoBehaviour
         transform.localPosition += 0.5f * addVec;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Grow(float amount)
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            Grow(amount, 1);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            Grow(amount, 2);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            Grow(amount, 3);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            Grow(amount, 0);
+        }
+    }
+
+    void OnMouseOver()
+    {
+        Grow(0.1f);
+    }
+
+        // Start is called before the first frame update
+        void Start()
     {
         
     }
@@ -65,7 +91,7 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Grow(0.8f * Time.deltaTime, 2);
+// Grow(0.8f * Time.deltaTime, 2);
         /*
         if (isSelected)
         {
