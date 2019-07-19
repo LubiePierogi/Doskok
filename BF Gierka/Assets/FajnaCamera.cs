@@ -8,7 +8,9 @@ public class FajnaCamera : MonoBehaviour
 
     public float velocityWeight = 2.0f;
     public float velocitySpeed = 0.02f;
+    public float farSpeed = 0.18f;
     public float followSpeed = 0.3f;
+    public float defaultSize = 8.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class FajnaCamera : MonoBehaviour
             float followAmount = followSpeed * Time.deltaTime;
             Vector2 finalCam = followSpeed * destCam + (1.0f - followSpeed) * oldCam;
             transform.localPosition = new Vector3(finalCam.x, finalCam.y, transform.localPosition.z);
+            GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
         }
 
     }
