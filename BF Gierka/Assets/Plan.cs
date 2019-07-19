@@ -52,8 +52,8 @@ public class Plan : MonoBehaviour
                 addVec = new Vector3(0.0f, -amount, 0.0f);
                 break;
         }
-        transform.localScale = Vector3.Scale(Vector3.one + addVec, transform.localScale);
-        transform.localPosition += addVec;
+        transform.localScale += new Vector3(Mathf.Abs(addVec.x), Mathf.Abs(addVec.y), Mathf.Abs(addVec.z));
+        transform.localPosition += 0.5f * addVec;
     }
 
     // Start is called before the first frame update
@@ -65,7 +65,7 @@ public class Plan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Grow(0.8f * Time.deltaTime, 1);
+        Grow(0.8f * Time.deltaTime, 2);
         /*
         if (isSelected)
         {
