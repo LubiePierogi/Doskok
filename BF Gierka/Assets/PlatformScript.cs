@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plan : MonoBehaviour
+public class PlatformScript : MonoBehaviour
 {
     public bool isSelected;
 
