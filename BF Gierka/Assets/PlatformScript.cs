@@ -32,70 +32,41 @@ public class PlatformScript : MonoBehaviour
 
     public bool isGrowing = false;
     private float growStart;
-
+    private Vector3 growScale;
     public float Power = 1.0f;
 
-    public void Grow(float amount, int direction)
+    public void Grow(Vector3 direction)
     {
-        // direction:
-        // 0 right
-        // 1 up
-        // 2 left
-        // 3 down
-        Vector3 addVec = Vector3.zero;
-        switch (direction)
-        {
-            case 0:
-                addVec = new Vector3(amount, 0.0f, 0.0f);
-                break;
-            case 1:
-                addVec = new Vector3(0.0f, amount, 0.0f);
-                break;
-            case 2:
-                addVec = new Vector3(-amount, 0.0f, 0.0f);
-                break;
-            case 3:
-                addVec = new Vector3(0.0f, -amount, 0.0f);
-                break;
-        }
-        transform.localScale += new Vector3(Mathf.Abs(addVec.x), Mathf.Abs(addVec.y), Mathf.Abs(addVec.z));
-        transform.localPosition += 0.5f * addVec;
+        
+        transform.localScale += new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z));
+        transform.localPosition += 0.5f * direction;
 
     }
 
     public void Grow(float amount)
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            Grow(amount, 1);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Grow(amount, 2);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            Grow(amount, 3);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Grow(amount, 0);
-        }
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
+        Grow(amount*dir);
     }
+    
 
     void OnMouseEnter()
     {
         isGrowing = true;
         growStart = Time.time;
+        growScale = transform.localScale;
     }
 
     void OnMouseExit()
     {
         isGrowing = false;
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Rigidbody2D rgbd2d = GetComponent<Rigidbody2D>();
-        rgbd2d.AddRelativeForce((transform.position - player.transform.position) * (Time.time - growStart) * Power);
-        Debug.Log( (transform.position - player.transform.position) * (Time.time - growStart) * -Power);
+        Collider2D coll = GetComponent<Collider2D>();
+        List<Collider2D> result= new List<Collider2D>();
+        coll.OverlapCollider(new ContactFilter2D(), result);
+        foreach (Collider2D collider2D in result)
+        {
+            collider2D.GetComponent<Rigidbody2D>().AddForce( (growScale-transform.localScale) *(Time.time-growStart) * -Power, ForceMode2D.Impulse);
+        }
     }
 
     // Start is called before the first frame update
