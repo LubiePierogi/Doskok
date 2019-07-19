@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 public class PlatformScript : MonoBehaviour
 {
     public bool isSelected;
+    public Renderer rend;
+    
+    void Start()
+    {
+        rend = GetComponent<Renderer>();
+    }
 
     public float GetBorder(int direction)
     {
@@ -54,12 +60,19 @@ public class PlatformScript : MonoBehaviour
     {
         isGrowing = true;
         growStart = Time.time;
+<<<<<<< HEAD
         growScale = transform.localScale;
+=======
+        rend.material.color = Color.red;
+        
+>>>>>>> c094f25c1b9ddaaee4eb440f8b707dd5402a74d8
     }
 
     void OnMouseExit()
     {
+        rend.material.color = Color.white;
         isGrowing = false;
+<<<<<<< HEAD
         Collider2D coll = GetComponent<Collider2D>();
         List<Collider2D> result= new List<Collider2D>();
         coll.OverlapCollider(new ContactFilter2D(), result);
@@ -67,14 +80,11 @@ public class PlatformScript : MonoBehaviour
         {
             collider2D.GetComponent<Rigidbody2D>().AddForce( (growScale-transform.localScale) *(Time.time-growStart) * -Power, ForceMode2D.Impulse);
         }
+>>>>>>> c094f25c1b9ddaaee4eb440f8b707dd5402a74d8
     }
 
     // Start is called before the first frame update
-    void Start()
-
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
