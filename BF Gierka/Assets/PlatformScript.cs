@@ -30,6 +30,11 @@ public class PlatformScript : MonoBehaviour
         return ret;
     }
 
+    public bool isGrowing = false;
+    private float growStart;
+
+    public float Power = 1.0f;
+
     public void Grow(float amount, int direction)
     {
         // direction:
@@ -78,13 +83,24 @@ public class PlatformScript : MonoBehaviour
         }
     }
 
-    void OnMouseOver()
+    void OnMouseEnter()
     {
-        Grow(0.1f);
+        isGrowing = true;
+        growStart = Time.time;
     }
 
-        // Start is called before the first frame update
-        void Start()
+    void OnMouseExit()
+    {
+        isGrowing = false;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Rigidbody2D rgbd2d = GetComponent<Rigidbody2D>();
+        rgbd2d.AddRelativeForce((transform.position - player.transform.position) * (Time.time - growStart) * Power);
+        Debug.Log( (transform.position - player.transform.position) * (Time.time - growStart) * -Power);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+
     {
         
     }
@@ -92,7 +108,10 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isGrowing)
+        {
+            Grow(0.1f);
+        }
 
 
     }
