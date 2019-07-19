@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 public class PlatformScript : MonoBehaviour
 {
     public bool isSelected;
+    public Renderer rend;
+    
+    void Start()
+    {
+        rend = GetComponent<Renderer>();
+    }
 
     public float GetBorder(int direction)
     {
@@ -87,23 +93,24 @@ public class PlatformScript : MonoBehaviour
     {
         isGrowing = true;
         growStart = Time.time;
+        rend.material.color = Color.red;
+        
     }
 
     void OnMouseExit()
     {
+        rend.material.color = Color.white;
         isGrowing = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Rigidbody2D rgbd2d = GetComponent<Rigidbody2D>();
         rgbd2d.AddRelativeForce((transform.position - player.transform.position) * (Time.time - growStart) * Power);
+        
         Debug.Log( (transform.position - player.transform.position) * (Time.time - growStart) * -Power);
+        
     }
 
     // Start is called before the first frame update
-    void Start()
-
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
