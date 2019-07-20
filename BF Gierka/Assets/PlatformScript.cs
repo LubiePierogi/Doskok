@@ -165,8 +165,9 @@ public class PlatformScript : MonoBehaviour
         while (startTime+ExplodeTime>Time.time)
         {
 
-            transform.localScale = Vector3.Lerp(startScale,BackgroundScale, ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
-            transform.localPosition = Vector3.Lerp(startPostion, Camera.main.transform.localPosition+new Vector3(0,0,50), ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
+            // transform.localScale = Vector3.Lerp(Vector3.Scale(startScale,new Vector3(0.5f,0.5f,0.5f)),BackgroundScale, ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
+            transform.localScale = startScale* ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime);
+            //transform.localPosition = Vector3.Lerp(startPostion, Camera.main.transform.localPosition+new Vector3(0,0,50), ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
             yield return new WaitForEndOfFrame();
         }
         gameObject.GetComponentInChildren<leafesScaler>().enabled = false;
