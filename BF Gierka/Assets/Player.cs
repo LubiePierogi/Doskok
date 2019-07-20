@@ -2,10 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 public class Player : MonoBehaviour
 {
     public float V = 0.1f;
     Rigidbody2D rigidbody;
+
+    public void ReadResetKey()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ReadResetKey();
        
     }
 
