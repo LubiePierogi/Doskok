@@ -96,30 +96,41 @@ public class PlatformScript : MonoBehaviour
         if (dir != Vector3.zero)
             Grow(dir);
     }
-    
 
-    void OnMouseEnter()
-    {
-        isGrowing = true;
-        growStart = Time.time;
-        growDir = Vector3.zero;
-        
-    }
 
-    void OnMouseExit()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        isGrowing = false;
-        Collider2D coll = GetComponent<Collider2D>();
-        List<Collider2D> result= new List<Collider2D>();
-        coll.OverlapCollider(new ContactFilter2D(), result);
-        foreach (Collider2D collider2D in result)
+        if (collision.gameObject.tag == "Player")
         {
-            Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
-            if (rb == null)
-                continue;
-            rb.AddForce( (growDir)  * Power, ForceMode2D.Impulse);
+            isGrowing = true;
+            growStart = Time.time;
+            growDir = Vector3.zero;
+
         }
     }
+
+    //void OnMouseEnter()
+    //{
+    //    isGrowing = true;
+    //    growStart = Time.time;
+    //    growDir = Vector3.zero;
+        
+    //}
+
+    //void OnMouseExit()
+    //{
+    //    isGrowing = false;
+    //    Collider2D coll = GetComponent<Collider2D>();
+    //    List<Collider2D> result= new List<Collider2D>();
+    //    coll.OverlapCollider(new ContactFilter2D(), result);
+    //    foreach (Collider2D collider2D in result)
+    //    {
+    //        Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
+    //        if (rb == null)
+    //            continue;
+    //        rb.AddForce( (growDir)  * Power, ForceMode2D.Impulse);
+    //    }
+    //}
 
     public void BecomeBackground()
     {
@@ -174,8 +185,22 @@ public class PlatformScript : MonoBehaviour
         if (isGrowing)
         {
             Grow(GrowSpeed);
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Jump"))
+            {
+                isGrowing = false;
+                Collider2D coll = GetComponent<Collider2D>();
+                List<Collider2D> result = new List<Collider2D>();
+                coll.OverlapCollider(new ContactFilter2D(), result);
+                foreach (Collider2D collider2D in result)
+                {
+                    Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
+                    if (rb == null)
+                        continue;
+                    rb.AddForce((growDir) * Power, ForceMode2D.Impulse);
+                }
+            }
         }
 
-
+        
     }
 }
