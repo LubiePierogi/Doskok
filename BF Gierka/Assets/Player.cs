@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
         if (sitting && Time.time > LastPath + 0.1f)
         {
             LastPath = Time.time;
-            GameObject path = Instantiate(preView, transform.position, transform.rotation);
-            Physics2D.IgnoreCollision(path.GetComponent<Collider2D>(), myColl);
-            path.GetComponent<Rigidbody2D>().AddForce(futureDir*10, ForceMode2D.Impulse);
+            //GameObject path = Instantiate(preView, transform.position, transform.rotation);
+            //Physics2D.IgnoreCollision(path.GetComponent<Collider2D>(), myColl);
+            //path.GetComponent<Rigidbody2D>().AddForce(futureDir*10, ForceMode2D.Impulse);
         }
     }
 
