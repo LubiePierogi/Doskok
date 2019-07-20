@@ -5,14 +5,23 @@ using UnityEngine.EventSystems;
 
 public class PlatformScript : MonoBehaviour
 {
+    [Header("Random")]
     public bool isSelected;
     public Renderer rend;
     public LineRenderer line;
-
+    [Header("Growth")]
     public bool isGrowing = false;
-    private float growStart;
     public Vector3 growDir;
     public float Power = 1.0f;
+    public float GrowSpeed=0.1f;
+    [Header("Become Background")]
+    public Vector3 BackgroundScale;
+    public Vector3 BackgroundPostion;
+    public AnimationCurve ExplodeSpeed;
+    public float ExplodeTime;
+    [Header("Visuals")]
+    public SpriteRenderer Image;
+    private float growStart;
     private Player player;
     void Start()
     {
@@ -78,15 +87,12 @@ public class PlatformScript : MonoBehaviour
     {
         isGrowing = true;
         growStart = Time.time;
-
         growDir = Vector3.zero;
-        rend.material.color = Color.red;
         
     }
 
     void OnMouseExit()
     {
-        rend.material.color = Color.white;
         isGrowing = false;
         Collider2D coll = GetComponent<Collider2D>();
         List<Collider2D> result= new List<Collider2D>();
@@ -100,15 +106,55 @@ public class PlatformScript : MonoBehaviour
         }
     }
 
+    public void BecomeBackground()
+    {
+        Rigidbody2D rigidbody2 = gameObject.GetComponent<Rigidbody2D>();
+        rigidbody2.simulated = false;
+
+        StartCoroutine(Dying());
+        
+        
+    }
+    IEnumerator Dying()
+    {
+        float startTime = Time.time;
+        Vector3 startScale = transform.localScale;
+        Vector3 startPostion = transform.localPosition;
+        Vector3 withoutZ = new Vector3(1, 1, 0);
+        while (startTime+ExplodeTime>Time.time)
+        {
+
+            transform.localScale = Vector3.Lerp(startScale,BackgroundScale, ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
+            transform.localPosition = Vector3.Lerp(startPostion, Camera.main.transform.localPosition+new Vector3(0,0,50), ExplodeSpeed.Evaluate((Time.time - startTime) / ExplodeTime));
+            yield return new WaitForEndOfFrame();
+        }
+        gameObject.GetComponentInChildren<leafesScaler>().enabled = false;
+        Image.drawMode = SpriteDrawMode.Simple;
+        gameObject.GetComponentInChildren<leafesScaler>().transform.localScale = Vector3.one/100;
+        transform.SetParent(Camera.main.transform);
+        
+        
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("HI");
+            BecomeBackground();
+        }
+    }
+
     // Start is called before the first frame update
-   
+
 
     // Update is called once per frame
     void Update()
     {
         if (isGrowing)
         {
-            Grow(1f);
+            Grow(GrowSpeed);
         }
 
 
