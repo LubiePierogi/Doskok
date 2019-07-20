@@ -99,6 +99,9 @@ MonoBehaviour:
   isSelected: 0
   rend: {fileID: 0}
   line: {fileID: 0}
+  physicsMaterials:
+  - {fileID: 6200000, guid: c83e9e60a5e26634db1d51cdc8b74f84, type: 2}
+  - {fileID: 6200000, guid: 9ce3251ba4cabe94f9a9cb50a244173e, type: 2}
   isGrowing: 0
   growDir: {x: 0, y: 0, z: 0}
   Power: 3

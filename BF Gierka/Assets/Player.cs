@@ -76,8 +76,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
-        Debug.Log(collision.gameObject.tag == "Bouncy");
+
         if (collision.gameObject.tag == "Bouncy")
         {
             return;
@@ -95,8 +94,6 @@ public class Player : MonoBehaviour
     public void OnCollisionExit2D(Collision2D collision)
     {
         line.enabled = false;
-        Debug.Log(collision.gameObject.tag);
-        Debug.Log(collision.gameObject.tag == "Bouncy");
         if (collision.gameObject.tag == "Bouncy")
         {
             return;

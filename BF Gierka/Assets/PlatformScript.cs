@@ -9,6 +9,7 @@ public class PlatformScript : MonoBehaviour
     public bool isSelected;
     public Renderer rend;
     public LineRenderer line;
+    public PhysicsMaterial2D[] physicsMaterials;
     [Header("Growth")]
     public bool isGrowing = false;
     public Vector3 growDir;
@@ -26,6 +27,7 @@ public class PlatformScript : MonoBehaviour
     public SpriteMask mask;
     private float growStart;
     private Player player;
+    private Collider2D collider2;
     void Start()
     {
         if (!CanBecomeBackground)
@@ -42,6 +44,15 @@ public class PlatformScript : MonoBehaviour
         }
         rend = GetComponent<Renderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        collider2 = gameObject.GetComponent<Collider2D>();
+        if(tag == "Bouncy")
+        {
+            collider2.sharedMaterial = physicsMaterials[0];
+        }
+        else
+        {
+            collider2.sharedMaterial = physicsMaterials[1];
+        }
     }
 
     public float GetBorder(int direction)
