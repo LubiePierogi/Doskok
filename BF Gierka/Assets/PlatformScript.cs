@@ -22,10 +22,24 @@ public class PlatformScript : MonoBehaviour
     public float ExplodeTime;
     [Header("Visuals")]
     public SpriteRenderer Image;
+    [Header("Mask")]
+    public SpriteMask mask;
     private float growStart;
     private Player player;
     void Start()
     {
+        if (!CanBecomeBackground)
+        {
+            Debug.Log("LoL");
+            mask.frontSortingOrder = 15;
+            mask.backSortingOrder = 11;
+        }
+        else
+        {
+            Debug.Log("Penis");
+            mask.frontSortingOrder = 10;
+            mask.backSortingOrder = 7;
+        }
         rend = GetComponent<Renderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
@@ -78,7 +92,7 @@ public class PlatformScript : MonoBehaviour
         dir = dir * amount * Time.deltaTime;
         growDir += dir;
         player.futureDir = (growDir)  * Power;
-        line.SetPosition(1, growDir);
+        
         if (dir != Vector3.zero)
             Grow(dir);
     }
@@ -137,7 +151,7 @@ public class PlatformScript : MonoBehaviour
         Image.drawMode = SpriteDrawMode.Simple;
         gameObject.GetComponentInChildren<leafesScaler>().transform.localScale = Vector3.one/100;
         transform.SetParent(Camera.main.transform);
-        
+        Camera.main.GetComponent<FajnaCamera>().ChangeBackGround();
         
     }
 

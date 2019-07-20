@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FajnaCamera : MonoBehaviour
 {
     public Rigidbody2D player;
@@ -12,11 +12,14 @@ public class FajnaCamera : MonoBehaviour
     public float farSpeed = 0.18f;
     public float followSpeed = 0.3f;
     public float defaultSize = 8.0f;
-
+    [Header("Background")]
     public GameObject bg;
     public Vector2 defBg = Vector2.zero;
     public Vector2 bgSpeed = 0.06f * Vector2.one;
-
+    public Sprite[] bgList;
+    public SpriteRenderer bgImage;
+    public SpriteRenderer futureBg;
+    public int curBg;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +40,7 @@ public class FajnaCamera : MonoBehaviour
             float followAmount = followSpeed * Time.deltaTime;
             Vector2 finalCam = followSpeed * destCam + (1.0f - followSpeed) * oldCam;
             transform.localPosition = new Vector3(finalCam.x, finalCam.y, transform.localPosition.z);
-            GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
+           // GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
 
             if (bg != null)
             {
@@ -48,15 +51,20 @@ public class FajnaCamera : MonoBehaviour
 
     }
 
+    public void ChangeBackGround()
+    {
+        curBg = curBg + 1;
+        bgImage.sprite = bgList[curBg];
+        futureBg.sprite = bgList[curBg + 1];
+    }
+
     private void Update()
     {
         if (player != null)
         {
-            Debug.Log("xd");
             var hit = Physics2D.CircleCastAll(player.transform.localPosition, 0.1f, Vector3.one, 0.0f);
             foreach(var xd in hit)
             {
-                Debug.Log("xdxd");
                 if(xd.collider.GetComponent<Win>())
                 {
                     ui.NextLevel();
