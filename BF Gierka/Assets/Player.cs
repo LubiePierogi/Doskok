@@ -8,10 +8,10 @@ public class Player : MonoBehaviour
 {
     public float V = 0.1f;
     public int styki = 0;
-    Rigidbody2D rigidbody;
     public float Power = 1.0f;
     public float amount = 3.0f;
     public List<int> kolizje;
+    Rigidbody2D rb;
 
     public void ReadResetKey()
     {
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
         myColl = gameObject.GetComponent<Collider2D>();
     }
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         }
         if (styki >= 1 && Input.GetMouseButtonDown(1))
         {
-            rigidbody.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
         }
         if (styki >= 1 && Input.GetMouseButton(1))
         {
@@ -56,14 +56,15 @@ public class Player : MonoBehaviour
             // int ruchV = Input.GetAxisRaw("Vertical");
             Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
             dir = dir * amount * Time.deltaTime;
-            rigidbody.AddForce((dir) * Power, ForceMode2D.Impulse);
+            rb.AddForce((dir) * Power, ForceMode2D.Impulse);
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.gravityScale = 0;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
+        sitting = true;
         styki++;
         kolizje.Add(collision.gameObject.GetInstanceID());
     }
@@ -72,6 +73,8 @@ public class Player : MonoBehaviour
         --styki;
         kolizje.Remove(collision.gameObject.GetInstanceID());
         if (styki == 0)
-            rigidbody.gravityScale = 1;
+            rb.gravityScale = 1;
+        rb.gravityScale = 1;
+        sitting = false;
     }
 }

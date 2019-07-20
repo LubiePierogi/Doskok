@@ -47,10 +47,19 @@ public class PlatformScript : MonoBehaviour
 
     public void Grow(Vector3 direction)
     {
-        
+        var colls = Physics2D.BoxCastAll(transform.localPosition, transform.localScale, 0.0f, direction, 0.02f);
+        foreach(RaycastHit2D xd in colls){
+            //
+            if (xd.collider.gameObject == gameObject)
+                continue;
+            if (xd.collider.GetComponent<GrowBlocker>() != null)
+            {
+                //Debug.Log("zderzonko");
+                return;
+            }
+        }
         transform.localScale += new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z) );
         transform.localPosition += 0.5f * direction;
-
     }
 
     public void Grow(float amount)
@@ -60,7 +69,8 @@ public class PlatformScript : MonoBehaviour
         growDir += dir;
         player.futureDir = (growDir)  * Power;
         line.SetPosition(1, growDir);
-        Grow(dir);
+        if (dir != Vector3.zero)
+            Grow(dir);
     }
     
 
