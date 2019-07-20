@@ -16,10 +16,12 @@ public class Player : MonoBehaviour
     public bool defeated = false;
     public GameObject preView;
     public Vector3 futureDir;
-    private float LastPath=0.0f;
+    private float LastPath = 0.0f;
     private bool sitting = false;
     private LineRenderer line;
     private Collider2D myColl;
+    
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -34,21 +36,13 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = deadSprite;
     }
 
-    public void ReadResetKey()
-    {
-        if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+
     // Start is called before the first frame update
     
 
     // Update is called once per frame
     void Update()
     {
-        ReadResetKey();
-        
         if (sitting && Time.time > LastPath + 0.1f)
         {
             LastPath = Time.time;

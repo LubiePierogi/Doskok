@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class FajnaCamera : MonoBehaviour
 {
     public Rigidbody2D player;
@@ -71,6 +73,14 @@ public class FajnaCamera : MonoBehaviour
                 {
                     ui.NextLevel();
                 }
+            }
+            if (Input.GetKeyDown("end"))
+            {
+                ui.NextLevel();
+            }
+            if (Input.GetKeyDown("r"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }

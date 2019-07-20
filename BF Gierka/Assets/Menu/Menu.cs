@@ -32,4 +32,8 @@ public class Menu : ScriptableObject
     {
         LoadLevel(levelNumber + 1);
     }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Mainmenu");
+    }
 }
