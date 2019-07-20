@@ -53,7 +53,9 @@ public class Player : MonoBehaviour
             //Physics2D.IgnoreCollision(path.GetComponent<Collider2D>(), myColl);
             //path.GetComponent<Rigidbody2D>().AddForce(futureDir*10, ForceMode2D.Impulse);
         }
-        
+
+        //StickWithPlatforms();
+
         if (styki >= 1 && Input.GetMouseButtonDown(1))
         {
             rb.velocity = Vector2.zero;
@@ -68,16 +70,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void StickWithPlatforms()
+    {
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.localPosition, 2.06f, Vector2.zero, 0.0f);
+        styki = 0;
+        sitting = false;
+        rb.gravityScale = 1.0f;
+        kolizje.Clear();
+        foreach (RaycastHit2D xd in hit)
+        {
+            if(xd.collider.GetComponent<PlatformScript>() != null && xd.collider.tag != "Bouncy")
+            {
+                sitting = true;
+                ++styki;
+                rb.velocity = Vector2.zero;
+                rb.gravityScale = 0.0f;
+                kolizje.Add(xd.collider.GetInstanceID());
+            }
+        }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.tag == "Bouncy")
         {
             return;
         }
         else
         {
-            Debug.Log("wnetrze else");
+           // Debug.Log("wnetrze else");
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0;
             sitting = true;

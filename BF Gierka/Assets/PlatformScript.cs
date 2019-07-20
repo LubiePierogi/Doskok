@@ -10,6 +10,7 @@ public class PlatformScript : MonoBehaviour
     public Renderer rend;
     public LineRenderer line;
     public PhysicsMaterial2D[] physicsMaterials;
+    private const float collDist = 0.06f;
     [Header("Growth")]
     public bool isGrowing = false;
     public Vector3 growDir;
@@ -32,13 +33,11 @@ public class PlatformScript : MonoBehaviour
     {
         if (!CanBecomeBackground)
         {
-            Debug.Log("LoL");
             mask.frontSortingOrder = 15;
             mask.backSortingOrder = 11;
         }
         else
         {
-            Debug.Log("Penis");
             mask.frontSortingOrder = 10;
             mask.backSortingOrder = 7;
         }
@@ -111,6 +110,7 @@ public class PlatformScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        return;
         if (collision.gameObject.tag == "Player")
         {
             isGrowing = true;
@@ -182,7 +182,7 @@ public class PlatformScript : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("HI");
+            //Debug.Log("HI");
             BecomeBackground();
         }
     }
@@ -193,21 +193,50 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // check if it is growing
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.localPosition, (Vector2)transform.localScale + collDist * Vector2.one, transform.localRotation.z, Vector2.zero);
+        bool groww = false;
+        foreach (RaycastHit2D xd in hit)
+        {
+            if (xd.collider.GetComponent<Player>() != null)
+            {
+                //Debug.Log("xd3");
+                if (!isGrowing)
+                {
+                   // Debug.Log("xd4");
+                    growStart = Time.time;
+                    growDir = Vector3.zero;
+                }
+                groww = true;
+                break;
+            }
+        }
+        isGrowing = groww;
         if (isGrowing)
         {
             Grow(GrowSpeed);
             if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Jump"))
             {
                 isGrowing = false;
-                Collider2D coll = GetComponent<Collider2D>();
-                List<Collider2D> result = new List<Collider2D>();
-                coll.OverlapCollider(new ContactFilter2D(), result);
-                foreach (Collider2D collider2D in result)
+                //Collider2D coll = GetComponent<Collider2D>();
+                //List<Collider2D> result = new List<Collider2D>();
+                //coll.OverlapCollider(new ContactFilter2D(), result);
+                //foreach (Collider2D collider2D in result)
+                //{
+                //  Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
+                //if (rb == null)
+                //    continue;
+                //rb.AddForce((growDir) * Power, ForceMode2D.Impulse);
+                //
+                //}
+                //RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.localPosition, (Vector2)transform.localScale + collDist * Vector2.one, transform.localRotation.z, Vector2.zero);
+                foreach(RaycastHit2D xd in hit)
                 {
-                    Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
+                    Rigidbody2D rb = xd.collider.GetComponent<Rigidbody2D>();
                     if (rb == null)
                         continue;
                     rb.AddForce((growDir) * Power, ForceMode2D.Impulse);
+             
                 }
             }
         }
