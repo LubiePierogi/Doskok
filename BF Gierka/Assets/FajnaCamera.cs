@@ -15,7 +15,7 @@ public class FajnaCamera : MonoBehaviour
 
     public GameObject bg;
     public Vector2 defBg = Vector2.zero;
-    public Vector2 bgSpeed = 0.1f * Vector2.one;
+    public Vector2 bgSpeed = 0.06f * Vector2.one;
 
     // Start is called before the first frame update
     void Start()
