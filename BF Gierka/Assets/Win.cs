@@ -20,9 +20,10 @@ public class Win : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.otherCollider.tag == "Player")
-        {
-            winText.gameObject.SetActive(true);
-        }
+        //if(collision.otherCollider.tag == "Player")
+        //{
+            //winText.gameObject.SetActive(true);
+
+        //}
     }
 }

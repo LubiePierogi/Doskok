@@ -5,6 +5,7 @@ using UnityEngine;
 public class FajnaCamera : MonoBehaviour
 {
     public Rigidbody2D player;
+    public Menu ui;
 
     public float velocityWeight = 2.0f;
     public float velocitySpeed = 0.02f;
@@ -35,5 +36,22 @@ public class FajnaCamera : MonoBehaviour
             GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
         }
 
+    }
+
+    private void Update()
+    {
+        if (player != null)
+        {
+            Debug.Log("xd");
+            var hit = Physics2D.CircleCastAll(player.transform.localPosition, 0.1f, Vector3.one, 0.0f);
+            foreach(var xd in hit)
+            {
+                Debug.Log("xdxd");
+                if(xd.collider.GetComponent<Win>())
+                {
+                    ui.NextLevel();
+                }
+            }
+        }
     }
 }
