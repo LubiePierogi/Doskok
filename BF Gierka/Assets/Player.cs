@@ -74,19 +74,38 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.velocity = Vector2.zero;
-        rb.gravityScale = 0;
-        sitting = true;
-        styki++;
-        kolizje.Add(collision.gameObject.GetInstanceID());
+        Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag == "Bouncy");
+        if (collision.gameObject.tag == "Bouncy")
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("wnetrze else");
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0;
+            sitting = true;
+            styki++;
+            kolizje.Add(collision.gameObject.GetInstanceID());
+        }
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
-        --styki;
-        kolizje.Remove(collision.gameObject.GetInstanceID());
-        if (styki == 0)
+        Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag == "Bouncy");
+        if (collision.gameObject.tag == "Bouncy")
+        {
+            return;
+        }
+        else
+        {
+            --styki;
+            kolizje.Remove(collision.gameObject.GetInstanceID());
+            if (styki == 0)
+                rb.gravityScale = 1;
             rb.gravityScale = 1;
-        rb.gravityScale = 1;
-        sitting = false;
+            sitting = false;
+        }
     }
 }
