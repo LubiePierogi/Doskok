@@ -15,6 +15,7 @@ public class PlatformScript : MonoBehaviour
     public float Power = 1.0f;
     public float GrowSpeed=0.1f;
     [Header("Become Background")]
+    public bool CanBecomeBackground = false;
     public Vector3 BackgroundScale;
     public Vector3 BackgroundPostion;
     public AnimationCurve ExplodeSpeed;
@@ -105,6 +106,10 @@ public class PlatformScript : MonoBehaviour
 
     public void BecomeBackground()
     {
+        if (!CanBecomeBackground)
+        {
+            return;
+        }
         Rigidbody2D rigidbody2 = gameObject.GetComponent<Rigidbody2D>();
         rigidbody2.simulated = false;
 
