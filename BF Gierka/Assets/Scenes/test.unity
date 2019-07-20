@@ -5385,6 +5385,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3187555130533366765, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bouncy
+      objectReference: {fileID: 0}
     - target: {fileID: 8203592426625280161, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5445,6 +5450,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4.069
       objectReference: {fileID: 0}
+    - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c83e9e60a5e26634db1d51cdc8b74f84, type: 2}
     - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_UseCustomVertexStreams
@@ -5657,7 +5672,7 @@ PrefabInstance:
     - target: {fileID: 470268977709747443, guid: f9b08d15a1aec3d448d7da1df53d3acb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 470268977709747443, guid: f9b08d15a1aec3d448d7da1df53d3acb,
         type: 3}

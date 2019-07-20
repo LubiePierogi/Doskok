@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public bool defeated = false;
 
-    public void Kill()
+    public void Faint()
     {
         defeated = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
