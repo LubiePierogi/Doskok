@@ -25,13 +25,6 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = deadSprite;
     }
 
-    public void ReadResetKey()
-    {
-        if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
     
     public GameObject preView;
     private float LastPath=0.0f;
@@ -49,7 +42,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ReadResetKey();
        
         if (sitting && Time.time > LastPath + 0.1f)
         {

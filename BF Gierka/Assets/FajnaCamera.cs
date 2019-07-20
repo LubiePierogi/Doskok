@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FajnaCamera : MonoBehaviour
 {
@@ -52,15 +53,21 @@ public class FajnaCamera : MonoBehaviour
     {
         if (player != null)
         {
-            Debug.Log("xd");
             var hit = Physics2D.CircleCastAll(player.transform.localPosition, 0.1f, Vector3.one, 0.0f);
             foreach(var xd in hit)
             {
-                Debug.Log("xdxd");
                 if(xd.collider.GetComponent<Win>())
                 {
                     ui.NextLevel();
                 }
+            }
+            if (Input.GetKeyDown("end"))
+            {
+                ui.NextLevel();
+            }
+            if (Input.GetKeyDown("r"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
