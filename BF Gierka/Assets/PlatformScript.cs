@@ -13,6 +13,7 @@ public class PlatformScript : MonoBehaviour
     private const float collDist = 0.045f;
     [Header("Growth")]
     public bool isGrowing = false;
+    bool dies = false;
     public Vector3 growDir;
     public float Power = 1.0f;
     public float GrowSpeed=0.1f;
@@ -138,6 +139,7 @@ public class PlatformScript : MonoBehaviour
         {
             return;
         }
+        dies = true;
         Rigidbody2D rigidbody2 = gameObject.GetComponent<Rigidbody2D>();
         rigidbody2.simulated = false;
 
@@ -175,6 +177,7 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dies) return;
         // check if it is growing
         RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.localPosition, (Vector2)transform.localScale + collDist * Vector2.one, transform.localRotation.z, Vector2.zero);
         bool groww = false;
