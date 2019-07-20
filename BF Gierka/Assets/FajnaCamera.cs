@@ -12,6 +12,10 @@ public class FajnaCamera : MonoBehaviour
     public float followSpeed = 0.3f;
     public float defaultSize = 8.0f;
 
+    public GameObject bg;
+    public Vector2 defBg = Vector2.zero;
+    public Vector2 bgSpeed = 0.1f * Vector2.one;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,12 @@ public class FajnaCamera : MonoBehaviour
             Vector2 finalCam = followSpeed * destCam + (1.0f - followSpeed) * oldCam;
             transform.localPosition = new Vector3(finalCam.x, finalCam.y, transform.localPosition.z);
             GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
+
+            if (bg != null)
+            {
+                bg.transform.localPosition = defBg + finalCam * (Vector2.one - bgSpeed);
+            }
+
         }
 
     }
