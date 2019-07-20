@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4855438222347804176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.88, y: 1.43, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,4 +99,6 @@ MonoBehaviour:
   player: {fileID: 0}
   velocityWeight: 6.4
   velocitySpeed: 0.016
+  farSpeed: 0.18
   followSpeed: 0.4
+  defaultSize: 8
