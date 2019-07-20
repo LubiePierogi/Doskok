@@ -11,6 +11,7 @@ public class ParticklesScaler : MonoBehaviour
     private ParticleSystem.EmissionModule emission;
     public float amount = 1f;
     public AnimationCurve amountOverTime;
+    public bool LeafsPartickles = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,14 @@ public class ParticklesScaler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LeafsPartickles)
+        {
+
+        }
+        else
+        {
+
+        
         if (parent.localScale != shape.scale ) {
             if (shape.rotation.z==0f)
             {
@@ -42,6 +51,7 @@ public class ParticklesScaler : MonoBehaviour
         if (particle.isPlaying && !platform.isGrowing)
         {
             particle.Stop();
+        }
         }
     }
 }
