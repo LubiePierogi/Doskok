@@ -482,10 +482,6 @@ PrefabInstance:
       propertyPath: bg
       value: 
       objectReference: {fileID: 1160968434}
-    - target: {fileID: 512439394, guid: 0e295b660d19a0d47a91160c060430f1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e295b660d19a0d47a91160c060430f1, type: 3}
 --- !u!1001 &416260970
@@ -5999,11 +5995,6 @@ PrefabInstance:
       propertyPath: m_UseCustomVertexStreams
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 9ce3251ba4cabe94f9a9cb50a244173e, type: 2}
     - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: ExplodeSpeed.m_Curve.Array.size
@@ -6155,6 +6146,11 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9ce3251ba4cabe94f9a9cb50a244173e, type: 2}
     m_RemovedComponents:
     - {fileID: 4044855595675428721, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}

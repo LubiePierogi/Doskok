@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             LastPath = Time.time;
             line.enabled = true;
             line.SetPosition(0, transform.position);
-            line.SetPosition(1, transform.position+ futureDir);
+            line.SetPosition(1, transform.position+ 0.3f*futureDir);
             //GameObject path = Instantiate(preView, transform.position, transform.rotation);
             //Physics2D.IgnoreCollision(path.GetComponent<Collider2D>(), myColl);
             //path.GetComponent<Rigidbody2D>().AddForce(futureDir*10, ForceMode2D.Impulse);
