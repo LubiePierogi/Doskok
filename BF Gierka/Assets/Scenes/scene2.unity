@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_UseCustomVertexStreams
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: CanBecomeBackground
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4248338692902531906, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_Sprite
@@ -5999,6 +6004,146 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 9ce3251ba4cabe94f9a9cb50a244173e, type: 2}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: CanBecomeBackground
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[0].value
+      value: -0.08266449
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[0].inSlope
+      value: -2.7010555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[0].outSlope
+      value: -2.7010555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[1].inSlope
+      value: 3.1007247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[1].outSlope
+      value: 3.1007247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[0].time
+      value: -0.0015182495
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[1].value
+      value: -0.62557054
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[2].value
+      value: 0.67048234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[1].time
+      value: 0.19947949
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[2].time
+      value: 0.34506243
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[2].inSlope
+      value: 5.5431824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[2].outSlope
+      value: 5.5431824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].time
+      value: 0.5196616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].value
+      value: 1.0517825
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].inSlope
+      value: 0.9642784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].outSlope
+      value: 0.9642784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].time
+      value: 1.0030488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].value
+      value: 0.92837214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].inSlope
+      value: -0.2553033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].outSlope
+      value: -0.2553033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494638838698145291, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: ExplodeSpeed.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 4248338692902531906, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_Sprite
