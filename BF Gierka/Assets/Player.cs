@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public float V = 0.1f;
-    Rigidbody2D rigidbody;
+    Rigidbody2D rb;
 
     public void ReadResetKey()
     {
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
         myColl = gameObject.GetComponent<Collider2D>();
     }
 
@@ -45,13 +45,13 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.gravityScale = 0;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
         sitting = true;
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
-        rigidbody.gravityScale = 1;
+        rb.gravityScale = 1;
         sitting = false;
     }
 }
