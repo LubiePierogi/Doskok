@@ -93,7 +93,10 @@ public class PlatformScript : MonoBehaviour
         coll.OverlapCollider(new ContactFilter2D(), result);
         foreach (Collider2D collider2D in result)
         {
-            collider2D.GetComponent<Rigidbody2D>().AddForce( (growDir)  * Power, ForceMode2D.Impulse);
+            Rigidbody2D rb = collider2D.GetComponent<Rigidbody2D>();
+            if (rb == null)
+                continue;
+            rb.AddForce( (growDir)  * Power, ForceMode2D.Impulse);
         }
     }
 
