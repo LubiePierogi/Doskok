@@ -47,7 +47,7 @@ public class PlatformScript : MonoBehaviour
 
     public void Grow(Vector3 direction)
     {
-        var colls = Physics2D.BoxCastAll(transform.localPosition, transform.localScale, 0.0f, direction, 0.02f);
+        var colls = Physics2D.BoxCastAll(transform.localPosition, transform.localScale, 0.0f, direction, 0.08f);
         foreach(RaycastHit2D xd in colls){
             //
             if (xd.collider.gameObject == gameObject)

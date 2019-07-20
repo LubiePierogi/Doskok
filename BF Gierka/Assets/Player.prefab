@@ -133,6 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   V: 0.1
+  styki: 0
+  Power: 1
+  amount: 3
+  kolizje: 
+  deadSprite: {fileID: 21300000, guid: 79435f939dea6f74f9b52c7807df8d11, type: 3}
+  defeated: 0
   preView: {fileID: 0}
   futureDir: {x: 0, y: 0, z: 0}
 --- !u!96 &-3270694307449075020
