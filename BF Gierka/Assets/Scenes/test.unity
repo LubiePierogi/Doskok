@@ -192,11 +192,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 44.52199
       objectReference: {fileID: 0}
-    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
@@ -211,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
@@ -624,16 +624,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.052528
       objectReference: {fileID: 0}
-    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: c4e54573b4adc8d4fa165507522fa3ea, type: 2}
+    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
 --- !u!1 &1336022768
@@ -5544,11 +5544,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4.069
       objectReference: {fileID: 0}
-    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_Enabled
@@ -5568,6 +5563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
@@ -5648,11 +5648,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 11.829
       objectReference: {fileID: 0}
-    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8216629469045444747, guid: c27b01f8c5200a54a918657782781ce6,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -5662,6 +5657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 1.0648721
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995373971908989792, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
