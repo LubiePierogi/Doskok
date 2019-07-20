@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
         //StickWithPlatforms();
 
-        if (styki >= 1 && Input.GetMouseButtonDown(1))
+        /*if (styki >= 1 && Input.GetMouseButtonDown(1))
         {
             rb.velocity = Vector2.zero;
         }
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
             Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
             dir = dir * amount * Time.deltaTime;
             rb.AddForce((dir) * Power, ForceMode2D.Impulse);
-        }
+        }*/
     }
 
     public void StickWithPlatforms()

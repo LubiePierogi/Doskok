@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Menu", menuName = "bfg/menu", order = 1)]
 public class Menu : ScriptableObject
 {
-    int numberOfLevels = 5;
+    int numberOfLevels = 6;
     public int levelNumber = 0;
     public void PlayButton()
     {

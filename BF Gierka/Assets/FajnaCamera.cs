@@ -13,7 +13,7 @@ public class FajnaCamera : MonoBehaviour
     public float velocitySpeed = 0.02f;
     public float farSpeed = 0.18f;
     public float followSpeed = 0.3f;
-    public float defaultSize = 8.0f;
+    public float defaultSize = 9.0f;
     [Header("Background")]
     public GameObject bg;
     public Vector2 defBg = Vector2.zero;
@@ -44,7 +44,7 @@ public class FajnaCamera : MonoBehaviour
             float followAmount = followSpeed * Time.deltaTime;
             Vector2 finalCam = followSpeed * destCam + (1.0f - followSpeed) * oldCam;
             transform.localPosition = new Vector3(finalCam.x, finalCam.y, transform.localPosition.z);
-           // GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
+            GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
 
             if (bg != null)
             {
