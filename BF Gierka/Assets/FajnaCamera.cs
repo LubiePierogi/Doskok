@@ -23,7 +23,9 @@ public class FajnaCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        bgImage.sprite = bgList[curBg];
+        futureBg.sprite = bgList[curBg + 1];
     }
 
     // Update is called once per frame
