@@ -13,6 +13,18 @@ public class Player : MonoBehaviour
     public List<int> kolizje;
     Rigidbody2D rb;
 
+    public Sprite deadSprite;
+
+    public bool defeated = false;
+
+    public void Kill()
+    {
+        defeated = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        if (deadSprite != null)
+            GetComponent<SpriteRenderer>().sprite = deadSprite;
+    }
+
     public void ReadResetKey()
     {
         if (Input.GetKeyDown("r"))
