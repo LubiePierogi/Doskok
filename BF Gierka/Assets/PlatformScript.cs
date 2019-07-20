@@ -108,17 +108,6 @@ public class PlatformScript : MonoBehaviour
     }
 
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        return;
-        if (collision.gameObject.tag == "Player")
-        {
-            isGrowing = true;
-            growStart = Time.time;
-            growDir = Vector3.zero;
-
-        }
-    }
 
     //void OnMouseEnter()
     //{
@@ -178,15 +167,7 @@ public class PlatformScript : MonoBehaviour
         
     }
 
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        
-        if (collision.gameObject.tag == "Player")
-        {
-            //Debug.Log("HI");
-            BecomeBackground();
-        }
-    }
+
 
     // Start is called before the first frame update
 
