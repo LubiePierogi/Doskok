@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  ui: {fileID: 11400000, guid: 16b1f908d7e0ae245ad7e276ca7b096c, type: 2}
   velocityWeight: 6.4
   velocitySpeed: 0.016
   farSpeed: 0.18
