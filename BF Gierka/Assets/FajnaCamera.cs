@@ -5,12 +5,17 @@ using UnityEngine;
 public class FajnaCamera : MonoBehaviour
 {
     public Rigidbody2D player;
+    public Menu ui;
 
     public float velocityWeight = 2.0f;
     public float velocitySpeed = 0.02f;
     public float farSpeed = 0.18f;
     public float followSpeed = 0.3f;
     public float defaultSize = 8.0f;
+
+    public GameObject bg;
+    public Vector2 defBg = Vector2.zero;
+    public Vector2 bgSpeed = 0.06f * Vector2.one;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +38,30 @@ public class FajnaCamera : MonoBehaviour
             Vector2 finalCam = followSpeed * destCam + (1.0f - followSpeed) * oldCam;
             transform.localPosition = new Vector3(finalCam.x, finalCam.y, transform.localPosition.z);
             GetComponent<Camera>().orthographicSize = defaultSize * (1.0f + farSpeed * mult);
+
+            if (bg != null)
+            {
+                bg.transform.localPosition = defBg + finalCam * (Vector2.one - bgSpeed);
+            }
+
         }
 
+    }
+
+    private void Update()
+    {
+        if (player != null)
+        {
+            Debug.Log("xd");
+            var hit = Physics2D.CircleCastAll(player.transform.localPosition, 0.1f, Vector3.one, 0.0f);
+            foreach(var xd in hit)
+            {
+                Debug.Log("xdxd");
+                if(xd.collider.GetComponent<Win>())
+                {
+                    ui.NextLevel();
+                }
+            }
+        }
     }
 }
