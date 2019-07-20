@@ -57,9 +57,9 @@ public class FajnaCamera : MonoBehaviour
 
     public void ChangeBackGround()
     {
-        curBg = curBg + 1;
+        curBg = (curBg + 1) % bgList.Length;
         bgImage.sprite = bgList[curBg];
-        futureBg.sprite = bgList[curBg + 1];
+        futureBg.sprite = bgList[(curBg + 1) % bgList.Length];
     }
 
     private void Update()

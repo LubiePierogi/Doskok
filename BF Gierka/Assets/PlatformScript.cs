@@ -193,6 +193,10 @@ public class PlatformScript : MonoBehaviour
                 break;
             }
         }
+        if (isGrowing && !groww)
+        {
+            BecomeBackground();
+        }
         isGrowing = groww;
         if (isGrowing)
         {
@@ -200,6 +204,7 @@ public class PlatformScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("Jump"))
             {
                 isGrowing = false;
+                BecomeBackground();
                 //Collider2D coll = GetComponent<Collider2D>();
                 //List<Collider2D> result = new List<Collider2D>();
                 //coll.OverlapCollider(new ContactFilter2D(), result);
