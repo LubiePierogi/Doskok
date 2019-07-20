@@ -26,7 +26,19 @@ public class ParticklesScaler : MonoBehaviour
     {
         if (LeafsPartickles)
         {
+            if (parent.localScale != shape.scale)
+            {
+                if (shape.rotation.z == 0f)
+                {
 
+                    shape.scale = new Vector3(parent.localScale.x, 1, 1);
+                }
+                else
+                {
+                    shape.scale = new Vector3(parent.localScale.y, 1, 1);
+                }
+                emission.rateOverTime = new ParticleSystem.MinMaxCurve(amount * shape.scale.x, amountOverTime);
+            }
         }
         else
         {
