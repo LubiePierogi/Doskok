@@ -8,9 +8,16 @@ public class PlatformScript : MonoBehaviour
     public bool isSelected;
     public Renderer rend;
     public LineRenderer line;
+
+    public bool isGrowing = false;
+    private float growStart;
+    public Vector3 growDir;
+    public float Power = 1.0f;
+    private Player player;
     void Start()
     {
         rend = GetComponent<Renderer>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public float GetBorder(int direction)
@@ -36,10 +43,7 @@ public class PlatformScript : MonoBehaviour
         return ret;
     }
 
-    public bool isGrowing = false;
-    private float growStart;
-    private Vector3 growDir;
-    public float Power = 1.0f;
+
 
     public void Grow(Vector3 direction)
     {
@@ -54,6 +58,7 @@ public class PlatformScript : MonoBehaviour
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
         dir = dir * amount * Time.deltaTime;
         growDir += dir;
+        player.futureDir = (growDir)  * Power;
         line.SetPosition(1, growDir);
         Grow(dir);
     }
@@ -78,7 +83,7 @@ public class PlatformScript : MonoBehaviour
         coll.OverlapCollider(new ContactFilter2D(), result);
         foreach (Collider2D collider2D in result)
         {
-            collider2D.GetComponent<Rigidbody2D>().AddForce( (growDir) *(Time.time-growStart) * Power, ForceMode2D.Impulse);
+            collider2D.GetComponent<Rigidbody2D>().AddForce( (growDir)  * Power, ForceMode2D.Impulse);
         }
     }
 
