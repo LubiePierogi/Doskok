@@ -10,7 +10,7 @@ public class PlatformScript : MonoBehaviour
     public Renderer rend;
     public LineRenderer line;
     public PhysicsMaterial2D[] physicsMaterials;
-    private const float collDist = 0.06f;
+    private const float collDist = 0.045f;
     [Header("Growth")]
     public bool isGrowing = false;
     public Vector3 growDir;
