@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bouncy")
         {
+            collision.gameObject.GetComponent<PlatformScript>().BecomeBackground();
             return;
         }
         else
