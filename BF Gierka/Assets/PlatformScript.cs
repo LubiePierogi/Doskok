@@ -179,7 +179,7 @@ public class PlatformScript : MonoBehaviour
     {
         if (dies) return;
         // check if it is growing
-        RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.localPosition, (Vector2)transform.localScale + collDist * Vector2.one, transform.localRotation.z, Vector2.zero);
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.localPosition, (Vector2)transform.localScale + collDist * Vector2.one, transform.localRotation.eulerAngles.z, Vector2.zero);
         bool groww = false;
         foreach (RaycastHit2D xd in hit)
         {
