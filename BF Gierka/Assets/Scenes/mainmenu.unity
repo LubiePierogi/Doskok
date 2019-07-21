@@ -423,9 +423,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BF Gierka
-
-'
+  m_Text: Doskok
 --- !u!222 &521195850
 CanvasRenderer:
   m_ObjectHideFlags: 0
