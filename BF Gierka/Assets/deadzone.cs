@@ -13,9 +13,10 @@ public class deadzone : MonoBehaviour
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            player.Faint();
         }
     }
 }
