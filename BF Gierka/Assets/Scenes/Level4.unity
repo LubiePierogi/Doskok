@@ -286,6 +286,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Partickes
       objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.026525259
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
 --- !u!1001 &1105218674
@@ -652,6 +667,21 @@ PrefabInstance:
       propertyPath: GrowSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.026525259
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
 --- !u!1 &1630624177
@@ -738,13 +768,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630624177}
-  m_LocalRotation: {x: 0.39579737, y: -0.23738085, z: 0.10668318, w: 0.88068914}
+  m_LocalRotation: {x: 0, y: -0.26025176, z: 0, w: 0.9655408}
   m_LocalPosition: {x: -3.34, y: 2.6228411, z: -0.31072903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 48.4, y: -30.17, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30.17, z: 0}
 --- !u!1001 &1636507350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1004,6 +1034,21 @@ PrefabInstance:
         type: 3}
       propertyPath: GrowSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267651242747299482, guid: c27b01f8c5200a54a918657782781ce6,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.026525259
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27b01f8c5200a54a918657782781ce6, type: 3}
